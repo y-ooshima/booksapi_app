@@ -153,8 +153,7 @@ export default {
   line-height: 35px;
   text-align: center;
   border-radius: 50%;
-  background: #5bc8ac;
-  transition: all 4s;
+  background: #e3e3fc;
 }
 
 .fadeIn {
