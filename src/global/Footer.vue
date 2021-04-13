@@ -1,6 +1,8 @@
 <template>
   <div>
-    <v-footer color="primary" dark app>
+    <v-footer 
+    color="primary" 
+    dark>
       Vuetify
     </v-footer>
   </div>
