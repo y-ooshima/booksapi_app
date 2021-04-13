@@ -1,24 +1,16 @@
 <template>
 <div>
     <v-row>
-        <v-col cols=6>
+        <v-col cols=9>
             <v-text-field label="本のタイトルを検索" v-model="keyword">
             </v-text-field>
         </v-col>
-    </v-row>
-    <v-row>
-        <v-col cols=3>
+
+        <v-col style="padding-top:20px" cols=3>
             <v-btn
                 color="primary"
                 @click="search(keyword)">
-                検索する
-            </v-btn>
-        </v-col>
-        <v-col cols=3>
-            <v-btn
-                color="secondary"
-                to="/view">
-                一覧表示
+                <v-icon>mdi-magnify</v-icon>
             </v-btn>
         </v-col>
     </v-row>

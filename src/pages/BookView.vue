@@ -1,14 +1,6 @@
 <template>
     <div>
         <v-row>
-            <v-col cols="3">
-                <v-btn coler="primary" to="/">検索画面へ</v-btn>
-            </v-col>
-            <v-col cols="3">
-                <v-btn color="error" @click="deleteLocalStorage">一括削除</v-btn>
-            </v-col>
-        </v-row>
-        <v-row>
             <v-col cols="12" sm="6" v-for="book in books" :key="book.id">
                 <v-card>
                     <v-row>
@@ -30,6 +22,12 @@
                         </v-col>
                     </v-row>
                 </v-card>
+            </v-col>
+        </v-row>
+        
+        <v-row>
+            <v-col cols="3">
+                <v-btn color="error" @click="deleteLocalStorage">一括削除</v-btn>
             </v-col>
         </v-row>
     </div>
