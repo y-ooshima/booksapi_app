@@ -8,8 +8,8 @@
           @add-book-list="addBook"
           @update-book-info="updateBookInfo"
           @delete-local-storage="deleteLocalStorage"
+          @delete-book-info="deleteBookInfo"
           />
-          <!-- @delete-book-info="deleteBookInfo" -->
         </v-container>
     </v-main>
     <div :class="{fadeIn: visible}">
@@ -41,10 +41,10 @@ export default {
       visible: false
     }
   },
-      created() {
-      window.addEventListener("scroll", this.handleScroll);
-    },
-
+  created() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  
   mounted() {
     if (localStorage.getItem(STORAGE_KEY)) {
       try {
@@ -54,6 +54,7 @@ export default {
       }
     }
   },
+
   methods: {
     addBook(e) {
       let flag = 0
@@ -104,7 +105,13 @@ export default {
       }
       this.books.splice(e.id, 1, updateInfo)
       this.saveBooks()
-      this.$router.push('/')
+      this.$router.push('/view')
+    },
+    deleteBookInfo(e){
+      const j = e.id
+      this.books.splice(j, 1)
+      this.saveBooks()
+      this.$router.push('/view')
     },
     goToEditPage(id){
       this.$router.push(`/edit/${id}`)
@@ -130,7 +137,7 @@ export default {
         } else {
           this.visible = false;
         }
-      }
+      },
   }
 };
 

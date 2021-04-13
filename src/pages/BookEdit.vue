@@ -44,8 +44,8 @@
                               <v-btn color="secondary" to="/">検索画面へ</v-btn>
                               <v-btn color="info"
                               @click="updateBookInfo">保存する</v-btn>
-                              <!-- <v-btn color="error"
-                              @click="deleteBookInfo">削除する</v-btn> -->
+                              <v-btn color="error"
+                              @click="deleteBookInfo">削除する</v-btn>
                           </v-card-actions>
                       </v-col>
                   </v-row>
@@ -74,6 +74,11 @@ export default {
             id: this.$route.params.id,
             readDate: this.date,
             memo: this.book.memo
+        })
+        },
+        deleteBookInfo(){
+            this.$emit('delete-book-info',{
+            id: this.$route.params.id
         })
         }
     },
