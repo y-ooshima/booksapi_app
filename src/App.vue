@@ -12,6 +12,11 @@
           <!-- @delete-book-info="deleteBookInfo" -->
         </v-container>
     </v-main>
+    <div :class="{fadeIn: visible}">
+      <button v-show="visible" class="Page-Btn" @click="returnTop">
+          <v-icon>mdi-arrow-up</v-icon>
+      </button>
+    </div>
     <Footer/>
   </v-app>
 </template>
@@ -32,9 +37,14 @@ export default {
   data(){
     return{
       books: [],
-      newBook: null
+      newBook: null,
+      visible: false
     }
   },
+      created() {
+      window.addEventListener("scroll", this.handleScroll);
+    },
+
   mounted() {
     if (localStorage.getItem(STORAGE_KEY)) {
       try {
@@ -107,8 +117,57 @@ export default {
         this.books = []
         window.location.reload()
       }
-    }
+    },
+    returnTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
+    },
+      handleScroll() {
+        if (window.scrollY > 200) {
+          this.visible = true;
+        } else {
+          this.visible = false;
+        }
+      }
   }
 };
 
 </script>
+
+<style>
+  .Page-Btn{
+  position: fixed;
+  right: 20px;
+  bottom: 40px;
+  width: 40px;
+  height: 40px;
+  line-height: 35px;
+  text-align: center;
+  border-radius: 50%;
+  background: #5bc8ac;
+  transition: all 4s;
+}
+
+.fadeIn {
+  animation: fadeIn 0.2s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+</style>
