@@ -39,7 +39,7 @@ export default {
       books: [],
       newBook: null,
       visible: false,
-      imgPath: require('@/assets/backImg.jpeg')
+      // imgPath: require('@/assets/backImg.jpeg')
     }
   },
   created() {
