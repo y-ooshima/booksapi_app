@@ -38,7 +38,8 @@ export default {
     return{
       books: [],
       newBook: null,
-      visible: false
+      visible: false,
+      imgPath: require('@/assets/backImg.jpeg')
     }
   },
   created() {
