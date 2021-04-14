@@ -6,10 +6,11 @@
         dark
         shrink-on-scroll
         prominent
-        src="@/assets/backImg.jpeg"
+        
         fade-img-on-scroll
         scroll-target="#scrolling-techniques-3"
       >
+      <!-- src="@/assets/backImg.jpeg" -->
         <template v-slot:img="{ props }">
           <v-img
             v-bind="props"
